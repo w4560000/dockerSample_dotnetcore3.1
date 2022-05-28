@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using dockerSample_WebApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace dockerSample_WebApi
 {
@@ -26,6 +20,9 @@ namespace dockerSample_WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            // ª`¤J AppSetting
+            services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
